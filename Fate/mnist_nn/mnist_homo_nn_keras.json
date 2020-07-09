@@ -1,0 +1,95 @@
+{
+  "initiator": {
+    "role": "guest",
+    "party_id": 10000
+  },
+  "job_parameters": {
+    "work_mode": 0
+  },
+  "role": {
+    "guest": [
+      10000
+    ],
+    "host": [
+      10000
+    ],
+    "arbiter": [
+      10000
+    ]
+  },
+  "role_parameters": {
+    "guest": {
+      "args": {
+        "data": {
+          "train_data": [
+            {
+              "name": "homo_mnist_guest",
+              "namespace": "homo_mnist_guest"
+            }
+          ]
+        }
+      },
+      "dataio_0": {
+        "with_label": [
+          true
+        ],
+        "label_name": [
+          "y"
+        ],
+        "label_type": [
+          "int"
+        ],
+        "output_format": [
+          "dense"
+        ]
+      }
+    },
+    "host": {
+      "args": {
+        "data": {
+          "train_data": [
+            {
+              "name": "homo_mnist_host",
+              "namespace": "homo_mnist_host"
+            }
+          ]
+        }
+      },
+      "dataio_0": {
+        "with_label": [
+          true
+        ],
+        "label_name": [
+          "y"
+        ],
+        "label_type": [
+          "int"
+        ],
+        "output_format": [
+          "dense"
+        ]
+      }
+    }
+  },
+  "algorithm_parameters": {
+    "homo_nn_0": {
+      "config_type": "keras",
+      "nn_define": {"class_name": "Sequential", "config": {"name": "sequential_6", "layers": [{"class_name": "Reshape", "config": {"name": "reshape_4", "trainable": true, "batch_input_shape": [null, 784], "dtype": "float32", "target_shape": [28, 28, 1]}}, {"class_name": "InputLayer", "config": {"batch_input_shape": [null, 28, 28, 1], "dtype": "float32", "sparse": false, "ragged": false, "name": "input_5"}}, {"class_name": "Conv2D", "config": {"name": "conv2d_14", "trainable": true, "dtype": "float32", "filters": 32, "kernel_size": [5, 5], "strides": [1, 1], "padding": "same", "data_format": "channels_last", "dilation_rate": [1, 1], "activation": "relu", "use_bias": true, "kernel_initializer": {"class_name": "GlorotUniform", "config": {"seed": null}}, "bias_initializer": {"class_name": "Zeros", "config": {}}, "kernel_regularizer": null, "bias_regularizer": null, "activity_regularizer": null, "kernel_constraint": null, "bias_constraint": null}}, {"class_name": "MaxPooling2D", "config": {"name": "max_pooling2d_12", "trainable": true, "dtype": "float32", "pool_size": [2, 2], "padding": "valid", "strides": [2, 2], "data_format": "channels_last"}}, {"class_name": "Conv2D", "config": {"name": "conv2d_15", "trainable": true, "dtype": "float32", "filters": 64, "kernel_size": [5, 5], "strides": [1, 1], "padding": "same", "data_format": "channels_last", "dilation_rate": [1, 1], "activation": "relu", "use_bias": true, "kernel_initializer": {"class_name": "GlorotUniform", "config": {"seed": null}}, "bias_initializer": {"class_name": "Zeros", "config": {}}, "kernel_regularizer": null, "bias_regularizer": null, "activity_regularizer": null, "kernel_constraint": null, "bias_constraint": null}}, {"class_name": "MaxPooling2D", "config": {"name": "max_pooling2d_13", "trainable": true, "dtype": "float32", "pool_size": [2, 2], "padding": "valid", "strides": [2, 2], "data_format": "channels_last"}}, {"class_name": "Flatten", "config": {"name": "flatten_6", "trainable": true, "dtype": "float32", "data_format": "channels_last"}}, {"class_name": "Dense", "config": {"name": "dense_12", "trainable": true, "dtype": "float32", "units": 512, "activation": "relu", "use_bias": true, "kernel_initializer": {"class_name": "GlorotUniform", "config": {"seed": null}}, "bias_initializer": {"class_name": "Zeros", "config": {}}, "kernel_regularizer": null, "bias_regularizer": null, "activity_regularizer": null, "kernel_constraint": null, "bias_constraint": null}}, {"class_name": "Dense", "config": {"name": "dense_13", "trainable": true, "dtype": "float32", "units": 10, "activation": "linear", "use_bias": true, "kernel_initializer": {"class_name": "GlorotUniform", "config": {"seed": null}}, "bias_initializer": {"class_name": "Zeros", "config": {}}, "kernel_regularizer": null, "bias_regularizer": null, "activity_regularizer": null, "kernel_constraint": null, "bias_constraint": null}}, {"class_name": "Softmax", "config": {"name": "softmax_3", "trainable": true, "dtype": "float32", "axis": -1}}], "build_input_shape": [null, 784]}, "keras_version": "2.3.0-tf", "backend": "tensorflow"},
+      
+      "batch_size": 64,
+      "optimizer": {
+        "optimizer": "Adam",
+        "learning_rate": 0.02
+      },
+      "early_stop": {
+        "early_stop": "diff",
+        "eps": 1e-5
+      },
+      "loss": "sparse_categorical_crossentropy",
+      "metrics": [
+        "acc"
+      ],
+      "max_iter": 20
+    }
+  }
+}

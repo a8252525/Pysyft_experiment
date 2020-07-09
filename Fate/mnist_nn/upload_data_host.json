@@ -1,0 +1,8 @@
+{
+    "file": "examples/data/mnist_train_3w_a.csv",
+    "head": 1,
+    "partition": 100,
+    "work_mode": 0,
+    "table_name": "homo_mnist_host",
+    "namespace": "homo_mnist_host"
+}
