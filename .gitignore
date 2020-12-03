@@ -3,6 +3,7 @@ tignore template for Jupyter Notebooks
 
 .ipynb_checkpoints
 */.ipynb_checkpoints/*
+*/machine-learning-diff-private-federated-learning/*
 
 # IPython
 profile_default/
